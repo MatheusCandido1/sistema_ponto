@@ -1,15 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Estágiarios</h1>
-<div class="text-right">
-<%= link_to 'Novo Estágiario', new_user_path, :class => "btn btn-primary" %>
-</div>
-<br>
 <table class="table">
   <thead>
     <tr>
       <th style="text-align: center">Nome</th>
-      <th style="text-align: center">Cpf</th>
+      <th style="text-align: center">CPF</th>
       <th style="text-align: center">Telefone</th>
       <th style="text-align: center">Status</th>
       <th style="text-align: center">Informações</th>
@@ -27,7 +23,7 @@
         <td style="text-align: center"><%= link_to 'Pontos', user, :class => "btn btn-primary" %></td>
         <td style="text-align: center">
         <%= link_to user,  :class => "btn btn-info"  do %>
-          <i class="fa fa-info"></i> Detalhes
+          <i class="fa fa-info-circle"></i>
         <% end %>
         <%= link_to  edit_user_path(user), :class => "btn btn-success" do %>
           <i class="fa fa-pencil"></i>
