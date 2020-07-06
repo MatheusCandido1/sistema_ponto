@@ -8,7 +8,20 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="d-flex" id="wrapper">
+  <%= render 'layouts/sidebar' %>
+  <div id="page-content-wrapper">
+  <%= render 'layouts/navbar' %>
+  <div class="container-fluid">
+  <%= yield %>
+      </div>
+      </div>
+</div>
+<script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
   </body>
 </html>
