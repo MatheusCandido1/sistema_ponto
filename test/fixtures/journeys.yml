@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_journey: 2020-07-06 19:36:36
+  end_journey: 2020-07-06 19:36:36
+  worked_hours: 2020-07-06 19:36:36
+  lunch_start: 2020-07-06 19:36:36
+  lunch_end: 2020-07-06 19:36:36
+  lunch_time: 2020-07-06 19:36:36
+  user: one
+
+two:
+  start_journey: 2020-07-06 19:36:36
+  end_journey: 2020-07-06 19:36:36
+  worked_hours: 2020-07-06 19:36:36
+  lunch_start: 2020-07-06 19:36:36
+  lunch_end: 2020-07-06 19:36:36
+  lunch_time: 2020-07-06 19:36:36
+  user: two

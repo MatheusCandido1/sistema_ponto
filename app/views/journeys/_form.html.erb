@@ -1,0 +1,19 @@
+
+<%= simple_form_for(@journey) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :start_journey %>
+    <%= f.input :end_journey %>
+    <%= f.input :worked_hours %>
+    <%= f.input :lunch_start %>
+    <%= f.input :lunch_end %>
+    <%= f.input :lunch_time %>
+    <%= f.association :user %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

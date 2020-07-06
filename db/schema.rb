@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200706190946) do
+ActiveRecord::Schema.define(version: 20200706223636) do
+
+  create_table "journeys", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+    t.datetime "start_journey"
+    t.datetime "end_journey"
+    t.time "worked_hours"
+    t.time "lunch_start"
+    t.time "lunch_end"
+    t.time "lunch_time"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_journeys_on_user_id"
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string "name"
@@ -31,4 +44,5 @@ ActiveRecord::Schema.define(version: 20200706190946) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "journeys", "users"
 end

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Start journey:</strong>
+  <%= @journey.start_journey %>
+</p>
+
+<p>
+  <strong>End journey:</strong>
+  <%= @journey.end_journey %>
+</p>
+
+<p>
+  <strong>Worked hours:</strong>
+  <%= @journey.worked_hours %>
+</p>
+
+<p>
+  <strong>Lunch start:</strong>
+  <%= @journey.lunch_start %>
+</p>
+
+<p>
+  <strong>Lunch end:</strong>
+  <%= @journey.lunch_end %>
+</p>
+
+<p>
+  <strong>Lunch time:</strong>
+  <%= @journey.lunch_time %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @journey.user %>
+</p>
+
+<%= link_to 'Edit', edit_journey_path(@journey) %> |
+<%= link_to 'Back', journeys_path %>

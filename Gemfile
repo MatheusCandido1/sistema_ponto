@@ -13,6 +13,7 @@ gem 'popper_js'
 gem 'tether-rails'
 gem "font-awesome-rails"
 gem 'devise'
+gem 'cancancan'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
