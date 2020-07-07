@@ -13,7 +13,7 @@
     <%= f.input :cpf, label: 'CPF',
                 required: true,
                 autofocus: true %>    
-    <%= f.input :birth_date, as: :date, start_year: Date.today.year - 40, label: 'Data de nascimento',
+    <%= f.input :birth_date, html5: true, as: :date, label: 'Data de nascimento',
                 required: true,
                 autofocus: true %>  
     <%= f.input :address, label: 'Endereço',
@@ -24,7 +24,7 @@
                 autofocus: true %>
     <%= f.input :password, label: 'Senha',
                 required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+                hint: ("#{@minimum_password_length} é o número minino caracteres" if @minimum_password_length) %>
     <%= f.input :password_confirmation, label: 'Confirmação de Senha',
                 required: true  %>
     <%= f.input :role,  :as => :hidden,

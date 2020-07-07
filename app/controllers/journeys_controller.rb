@@ -4,7 +4,11 @@ class JourneysController < ApplicationController
   # GET /journeys
   # GET /journeys.json
   def index
-    @journeys = Journey.all.order('start_journey DESC')
+    if current_user.role?
+        redirect_to "/users"
+    else
+    @journeys = Journey.where('user_id = ?',  current_user.id).order('start_journey DESC')
+    end
   end
 
   # GET /journeys/1
@@ -16,6 +20,11 @@ class JourneysController < ApplicationController
   def new
     @user = current_user.id
     @journey = Journey.new
+  end
+
+  # GET /user/1/journeys
+  def journeyByUser
+    @journeys = Journey.where(user_id: params[:user_id]).order('start_journey DESC')
   end
 
   # GET /journeys/1/edit

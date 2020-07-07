@@ -20,7 +20,7 @@
         <td style="text-align: center"><%= user.cpf %></td>
         <td style="text-align: center"><%= user.phone %></td>
         <td style="text-align: center"><%= user.status == 1 ? "Ativo":"Inativo" %></td>
-        <td style="text-align: center"><%= link_to 'Pontos', user, :class => "btn btn-primary" %></td>
+        <td style="text-align: center"><a class="btn btn-primary" href="user/<%= user.id %>/journeys">Pontos</a></td>
         <td style="text-align: center">
         <%= link_to user,  :class => "btn btn-info"  do %>
           <i class="fa fa-info-circle"></i>

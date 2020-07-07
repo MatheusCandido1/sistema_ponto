@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     root :to => "journeys#index"
   end
 
+  get 'user/:user_id/journeys', to: 'journeys#journeyByUser'
+
   root :to => redirect("/users/sign_in")
 
   

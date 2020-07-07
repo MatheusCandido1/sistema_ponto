@@ -1,0 +1,32 @@
+<h4>Jornada de: <%= @journeys[0].user.name %></h4>
+
+<div class="table-responsive"> 
+<table class="table">
+  <thead>
+    <tr>
+    <th style="text-align: center">Data:</th>
+      <th style="text-align: center">Horário de Chegada:</th>
+      <th style="text-align: center">Inicío do Almoço:</th>
+      <th style="text-align: center">Término do Almoço:</th>
+      <th style="text-align: center">Horário de Saída:</th>
+      <th style="text-align: center">Tempo de Almoço:</th>
+      <th style="text-align: center">Jornada:</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @journeys.each do |journey| %>
+      <tr>
+      <td style="text-align: center"><%= journey.start_journey.strftime("%d/%m/%Y") %></td>
+      <td style="text-align: center"><%= journey.start_journey.to_s(:time) %></td>
+      <td style="text-align: center"><%= journey.lunch_start.to_s(:time) %></td>
+      <td style="text-align: center"><%= journey.lunch_end.to_s(:time) %></td>
+      <td style="text-align: center"><%= journey.end_journey.to_s(:time)  %></td>
+      <td style="text-align: center"><%= journey.lunch_time.strftime("%Hh:%Mm") %></td>
+      <td style="text-align: center"><%= journey.worked_hours.strftime("%Hh:%Mm") %></td>
+      <td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
