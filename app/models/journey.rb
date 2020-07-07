@@ -15,6 +15,7 @@ class Journey < ApplicationRecord
 
     seconds = seconds_diff
     self.worked_hours = "#{hours.to_s.rjust(2, '0')}:#{minutes.to_s.rjust(2, '0')}:#{seconds.to_s.rjust(2, '0')}"
+    self.status = 1
   end
 
   private 
@@ -29,5 +30,6 @@ class Journey < ApplicationRecord
 
     seconds = seconds_diff
     self.lunch_time = "#{hours.to_s.rjust(2, '0')}:#{minutes.to_s.rjust(2, '0')}:#{seconds.to_s.rjust(2, '0')}"
+    
   end
 end

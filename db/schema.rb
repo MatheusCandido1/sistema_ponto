@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200706223636) do
+ActiveRecord::Schema.define(version: 20200707162458) do
 
   create_table "journeys", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.datetime "start_journey"
-    t.datetime "end_journey"
+    t.time "end_journey"
     t.time "worked_hours"
     t.time "lunch_start"
     t.time "lunch_end"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20200706223636) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status"
     t.index ["user_id"], name: "index_journeys_on_user_id"
   end
 

@@ -26,7 +26,7 @@
       <td style="text-align: center"><%= journey.lunch_end.to_s(:time) unless journey.lunch_end.to_s.strip.empty? %></td>
       <td style="text-align: center"><%= journey.end_journey.to_s(:time) unless journey.end_journey.to_s.strip.empty? %></td>
       <td>
-      <% if journey.start_journey.past? %>
+      <% if journey.status? %>
       <a style="color:white" class="btn btn-info">Ver Jornada</a>
         <% else %>
         <%= link_to  edit_journey_path(journey), :class => "btn btn-success"  do %>
