@@ -1,39 +1,14 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Start journey:</strong>
-  <%= @journey.start_journey %>
-</p>
+<div class="card text-center" style="width: 100%">
+<div class="card-body">
+  <h5 class="card-title">Jornada do dia: <%= @journey.start_journey.strftime("%d/%m/%Y") %> </h5>
+  <h6 class="card-subtitle mb-2 text-muted">Todos dados serão exibidos aqui</h6>
+  <p class="card-text">  <strong>Horário de Chegada: </strong><%= @journey.start_journey.strftime("%Hh:%Mm") %></p>
+  <p class="card-text">  <strong>Inicío do Almoço: </strong><%= @journey.lunch_start.strftime("%Hh:%Mm") %></p>
+  <p class="card-text">  <strong>Término do Almoço: </strong><%= @journey.lunch_end.strftime("%Hh:%Mm") %></p>
+  <p class="card-text">  <strong>Horário de Saída: </strong><%= @journey.lunch_end.strftime("%Hh:%Mm") %></p>
+  <p class="card-text">  <strong>Tempo de Almoço: </strong><%= @journey.lunch_time.strftime("%Hh:%Mm") %></p>
+  <p class="card-text">  <strong>Tempo de Jornada: </strong><%= @journey.worked_hours.strftime("%Hh:%Mm") %></p>
 
-<p>
-  <strong>End journey:</strong>
-  <%= @journey.end_journey %>
-</p>
-
-<p>
-  <strong>Worked hours:</strong>
-  <%= @journey.worked_hours %>
-</p>
-
-<p>
-  <strong>Lunch start:</strong>
-  <%= @journey.lunch_start %>
-</p>
-
-<p>
-  <strong>Lunch end:</strong>
-  <%= @journey.lunch_end %>
-</p>
-
-<p>
-  <strong>Lunch time:</strong>
-  <%= @journey.lunch_time %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @journey.user %>
-</p>
-
-<%= link_to 'Edit', edit_journey_path(@journey) %> |
-<%= link_to 'Back', journeys_path %>
+  <%= link_to 'Voltar', journeys_path %>
+</div>
