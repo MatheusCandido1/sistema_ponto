@@ -4,7 +4,7 @@ class JourneysController < ApplicationController
   # GET /journeys
   # GET /journeys.json
   def index
-    @journeys = Journey.all
+    @journeys = Journey.all.order('start_journey DESC')
   end
 
   # GET /journeys/1
@@ -14,11 +14,13 @@ class JourneysController < ApplicationController
 
   # GET /journeys/new
   def new
+    @user = current_user.id
     @journey = Journey.new
   end
 
   # GET /journeys/1/edit
   def edit
+    @user = current_user.id
   end
 
   # POST /journeys
@@ -28,7 +30,7 @@ class JourneysController < ApplicationController
 
     respond_to do |format|
       if @journey.save
-        format.html { redirect_to @journey, notice: 'Journey was successfully created.' }
+        format.html { redirect_to action: :index, notice: 'Journey was successfully created.' }
         format.json { render :show, status: :created, location: @journey }
       else
         format.html { render :new }
@@ -42,7 +44,7 @@ class JourneysController < ApplicationController
   def update
     respond_to do |format|
       if @journey.update(journey_params)
-        format.html { redirect_to @journey, notice: 'Journey was successfully updated.' }
+        format.html { redirect_to action: :index, notice: 'Journey was successfully updated.' }
         format.json { render :show, status: :ok, location: @journey }
       else
         format.html { render :edit }

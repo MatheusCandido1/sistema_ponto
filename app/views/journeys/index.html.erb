@@ -1,39 +1,41 @@
-<p id="notice"><%= notice %></p>
+<h1>Jornada</h1>
 
-<h1>Journeys</h1>
-
-<table>
+<div class="text-right">
+<%= link_to 'Iniciar Jornada',  new_journey_path, :class => "btn btn-primary" %>
+</div>
+<br>
+    <div class="table-responsive"> 
+<table class="table">
   <thead>
     <tr>
-      <th>Start journey</th>
-      <th>End journey</th>
-      <th>Worked hours</th>
-      <th>Lunch start</th>
-      <th>Lunch end</th>
-      <th>Lunch time</th>
-      <th>User</th>
-      <th colspan="3"></th>
+    <th style="text-align: center">Data:</th>
+      <th style="text-align: center">Horário de Chegada:</th>
+      <th style="text-align: center">Inicío do Almoço:</th>
+      <th style="text-align: center">Término do Almoço:</th>
+      <th style="text-align: center">Horário de Saída:</th>
+      <th style="text-align: center" >Ações</th>
     </tr>
   </thead>
 
   <tbody>
     <% @journeys.each do |journey| %>
       <tr>
-        <td><%= journey.start_journey %></td>
-        <td><%= journey.end_journey %></td>
-        <td><%= journey.worked_hours %></td>
-        <td><%= journey.lunch_start %></td>
-        <td><%= journey.lunch_end %></td>
-        <td><%= journey.lunch_time %></td>
-        <td><%= journey.user %></td>
-        <td><%= link_to 'Show', journey %></td>
-        <td><%= link_to 'Edit', edit_journey_path(journey) %></td>
-        <td><%= link_to 'Destroy', journey, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td style="text-align: center"><%= journey.start_journey.strftime("%d/%m/%Y") %></td>
+      <td style="text-align: center"><%= journey.start_journey.to_s(:time) %></td>
+      <td style="text-align: center"><%= journey.lunch_start.to_s(:time) unless journey.lunch_start.to_s.strip.empty? %></td>
+      <td style="text-align: center"><%= journey.lunch_end.to_s(:time) unless journey.lunch_end.to_s.strip.empty? %></td>
+      <td style="text-align: center"><%= journey.end_journey.to_s(:time) unless journey.end_journey.to_s.strip.empty? %></td>
+      <td>
+      <% if journey.start_journey.past? %>
+      <a style="color:white" class="btn btn-info">Ver Jornada</a>
+        <% else %>
+        <%= link_to  edit_journey_path(journey), :class => "btn btn-success"  do %>
+          <i class="fa fa-pencil"></i> Atualizar
+          <% end %>
+        <% end %>
+      </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Journey', new_journey_path %>
+</div>

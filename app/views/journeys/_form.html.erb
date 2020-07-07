@@ -4,16 +4,15 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :start_journey %>
-    <%= f.input :end_journey %>
-    <%= f.input :worked_hours %>
-    <%= f.input :lunch_start %>
-    <%= f.input :lunch_end %>
-    <%= f.input :lunch_time %>
-    <%= f.association :user %>
+    <%= f.input :start_journey, html5: true, label: 'Data e Hora de chegada' , readonly: f.object.persisted?%>
+    <%= f.input :lunch_start, html5: true, label: 'Início Almoço'  unless @journey.new_record?  %>
+    <%= f.input :lunch_end, html5: true, label: 'Término Almoço' unless @journey.new_record? %>
+    <%= f.input :end_journey,  html5: true, label: 'Hora de Saída' unless @journey.new_record?%>
+    <%= f.input :user_id, :as => :hidden,
+    input_html: { :value => @user } %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+  <%= f.button :submit, "Salvar", class: "btn btn-success" %>
   </div>
 <% end %>
