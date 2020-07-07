@@ -4,7 +4,11 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+    if current_user.role == 1
     @users = User.where("role = '0'")
+    else
+      redirect_to journeys_url
+    end
   end
 
   # GET /users/1
