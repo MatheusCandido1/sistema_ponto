@@ -8,6 +8,8 @@
     <%= f.input :lunch_start, html5: true, label: 'Início Almoço'  unless @journey.new_record?  %>
     <%= f.input :lunch_end, html5: true, label: 'Término Almoço' unless @journey.new_record? %>
     <%= f.input :end_journey,  html5: true, label: 'Hora de Saída' unless @journey.new_record?%>
+    <%= f.input :status, :as => :hidden,
+    input_html: { :value => 0 } %>
     <%= f.input :user_id, :as => :hidden,
     input_html: { :value => @user } %>
   </div>

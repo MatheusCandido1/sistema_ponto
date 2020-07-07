@@ -24,7 +24,7 @@ class JourneysController < ApplicationController
 
   # GET /user/1/journeys
   def journeyByUser
-    @journeys = Journey.where(user_id: params[:user_id]).order('start_journey DESC')
+    @journeys = Journey.where(user_id: params[:user_id]).where('status = 1').order('start_journey DESC')
   end
 
   # GET /journeys/1/edit
@@ -80,6 +80,6 @@ class JourneysController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def journey_params
-      params.require(:journey).permit(:start_journey, :end_journey, :worked_hours, :lunch_start, :lunch_end, :lunch_time, :user_id)
+      params.require(:journey).permit(:start_journey, :end_journey, :worked_hours, :lunch_start, :lunch_end, :lunch_time, :status, :user_id)
     end
 end
